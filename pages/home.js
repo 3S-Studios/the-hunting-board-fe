@@ -1,7 +1,7 @@
-import Button from "../components/Button";
+import Layout from "../components/Layout";
 
 const MainPage = () => {
-  return <Button color="#fff">Styled Button in Next.js</Button>;
+  return <Layout debug />;
 };
 
 export { MainPage as default, MainPage };
