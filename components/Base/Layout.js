@@ -8,19 +8,29 @@ const Wrapper = styled.div`
 
 const Aside = styled.aside`
   flex: 1 1 auto;
+  padding: 30px 20px;
   background-color: ${(props) => props.bg};
 `;
 
 const Main = styled.main`
   flex: 1 1 75%;
+  padding: 30px 20px;
   background-color: ${(props) => props.bg};
 `;
 
-const Layout = ({ debug = false }) => {
+const Divider = styled.div`
+  background-color: #6a6a6a;
+  width: 2px;
+  height: 92%;
+  align-self: center;
+`;
+
+const Layout = ({ aside = "", main = "", debug = false }) => {
   return (
     <Wrapper>
-      <Aside bg={debug ? "red" : "transparent"} />
-      <Main bg={debug ? "blue" : "transparent"} />
+      <Aside bg={debug ? "red" : "transparent"}>{aside}</Aside>
+      <Divider />
+      <Main bg={debug ? "blue" : "transparent"}>{main}</Main>
     </Wrapper>
   );
 };
