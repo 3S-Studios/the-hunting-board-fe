@@ -16,6 +16,8 @@ const Main = styled.main`
   flex: 1 1 75%;
   padding: 30px 20px;
   background-color: ${(props) => props.bg};
+  display: flex;
+  justify-content: center;
 `;
 
 const Divider = styled.div`
