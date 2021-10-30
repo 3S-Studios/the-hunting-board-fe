@@ -2,7 +2,7 @@ import styled from "styled-components";
 import _map from "lodash/map";
 import Step from "./Step";
 
-const currentStep = 1;
+const currentStep = 2;
 
 const steps = [
   { id: 1, value: "Post quest" },
@@ -36,7 +36,7 @@ const Stepper = () => {
       <Title>Mission guide</Title>
       <StepsWrapper>
         {_map(steps, (step) => (
-          <Step currentStep={step.id === currentStep} label={step.value} />
+          <Step id={step.id} currentStep={currentStep} label={step.value} />
         ))}
       </StepsWrapper>
     </StepperWrapper>

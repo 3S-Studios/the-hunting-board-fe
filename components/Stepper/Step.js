@@ -8,28 +8,31 @@ const Wrapper = styled.li`
 `;
 
 const Label = styled.label`
-  color: ${(props) => (props.currentStep ? "#000" : "#6A6A6A")};
-  font-weight: ${(props) => (props.currentStep ? 500 : 300)};
+  color: ${({ currentStep, id }) => (id === currentStep ? "#000" : "#6A6A6A")};
+  font-weight: ${({ currentStep, id }) => (id === currentStep ? 500 : 300)};
+  text-decoration: ${({ currentStep, id }) =>
+    id < currentStep && "line-through"};
   margin-bottom: 2px;
 `;
 
 const StyledCheckbox = styled(Checkbox)`
   svg {
-    fill: ${(props) => (props.currentStep ? "#000" : "#6a6a6a")};
+    fill: ${({ id, currentStep }) => (id === currentStep ? "#000" : "#6a6a6a")};
   }
 `;
 
-const Step = ({ label, currentStep = false }) => {
+const Step = ({ id, label, currentStep }) => {
   return (
     <Wrapper>
       <StyledCheckbox
         name={label}
         title={label}
-        currentStep={currentStep}
+        currentStep={id === currentStep}
+        checked={id < currentStep}
         disabled
         disableRipple
       />
-      <Label htmlFor={label} currentStep={currentStep}>
+      <Label htmlFor={label} currentStep={currentStep} id={id}>
         {label} {currentStep && "(current)"}
       </Label>
     </Wrapper>
