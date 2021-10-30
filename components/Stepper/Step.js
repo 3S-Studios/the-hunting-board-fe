@@ -33,7 +33,7 @@ const Step = ({ id, label, currentStep }) => {
         disableRipple
       />
       <Label htmlFor={label} currentStep={currentStep} id={id}>
-        {label} {currentStep && "(current)"}
+        {label} {currentStep === id && "(current)"}
       </Label>
     </Wrapper>
   );
